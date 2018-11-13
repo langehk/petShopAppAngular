@@ -1,0 +1,16 @@
+<div>
+<button class="btn btn-primary" routerLink="/owners-add"> Add owner</button>
+</div>
+
+<div>
+<ul *ngIf="owners">
+
+  <li *ngFor="let owner of owners">
+    <a routerLink="/owners/{{owner.ownerId}}">
+      {{owner.firstName}} {{owner.lastName}}</a>
+<button routerLink="/owner-update/{{owner.ownerId}}" class="btn btn-primary">Update</button>
+    <button (click)="delete(owner.ownerId)" class="btn btn-warning"> Delete</button>
+  </li>
+</ul>
+<h4 *ngIf="!owners">Loading.....</h4>
+</div>
