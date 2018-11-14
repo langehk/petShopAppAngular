@@ -11,7 +11,7 @@ import { OwnerAddComponent } from './owners/owner-add/owner-add.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { OwnerUpdateComponent } from './owners/owner-update/owner-update.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ButtonsModule, ProgressbarModule} from 'ngx-bootstrap';
+import {BsDropdownModule, ButtonsModule, ProgressbarModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,9 @@ import {ButtonsModule, ProgressbarModule} from 'ngx-bootstrap';
     ReactiveFormsModule,
     HttpClientModule,
     ButtonsModule.forRoot(),
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    BsDropdownModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
