@@ -17,6 +17,10 @@ import {HomeComponent} from './home/home.component';
 import {TodoItemService} from './_services/todoitem.service';
 import {AuthenticationService} from './_services/authentication.service';
 import {AuthGuard} from './_guards/auth.guard';
+import { PetAddComponent } from './pets/pet-add/pet-add.component';
+import { PetDetailsComponent } from './pets/pet-details/pet-details.component';
+import { PetUpdateComponent } from './pets/pet-update/pet-update.component';
+import { PetListComponent } from './pets/pet-list/pet-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import {AuthGuard} from './_guards/auth.guard';
     OwnerAddComponent,
     OwnerUpdateComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PetAddComponent,
+    PetDetailsComponent,
+    PetUpdateComponent,
+    PetListComponent
   ],
   imports: [
     BrowserModule,

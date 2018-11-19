@@ -1,0 +1,18 @@
+
+
+<div>
+  <button class="btn btn-primary" routerLink="/pets-add"> Add pet</button>
+</div>
+<div>
+  <ul *ngIf="pets">
+
+    <li *ngFor="let pet of pets">
+      <a routerLink="/pets/{{pet.petId}}">
+        {{pet.petName}} {{pet.petType}} {{pet.birthDate}} {{pet.soldDate}} {{pet.price}} {{pet.previousOwner}} {{pet.color}} </a>
+
+      <button routerLink="/pet-update/{{pet.petId}}" class="btn btn-info ml-3">Update</button>
+      <button (click)="delete(pet.petId)" class="btn btn-danger ml-1"> Delete</button>
+    </li>
+  </ul>
+  <h4 *ngIf="!pets">Loading.....</h4>
+</div>

@@ -9,6 +9,10 @@ import {OwnerUpdateComponent} from './owners/owner-update/owner-update.component
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards/auth.guard';
+import {PetListComponent} from './pets/pet-list/pet-list.component';
+import {PetAddComponent} from './pets/pet-add/pet-add.component';
+import {PetUpdateComponent} from './pets/pet-update/pet-update.component';
+import {PetDetailsComponent} from './pets/pet-details/pet-details.component';
 
 const routes: Routes = [
   {path: 'owners/:ownerId', component: OwnerDetailsComponent},
@@ -18,6 +22,11 @@ const routes: Routes = [
   {path: '', component: WelcomeComponent},
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'pets', component: PetListComponent},
+  {path: 'pet-add', component: PetAddComponent},
+  {path: 'pet-update/:petId', component: PetUpdateComponent},
+  {path: 'pets/:petId', component: PetDetailsComponent },
+
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

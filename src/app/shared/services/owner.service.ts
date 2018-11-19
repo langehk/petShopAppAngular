@@ -1,19 +1,35 @@
 import { Injectable } from '@angular/core';
 import {Owner} from '../models/owner';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {AuthenticationService} from '../../_services/authentication.service';
+import {environment} from '../../../environments/environment';
+
+
+const httpOptions = {
+  headers: new HttpHeaders( {
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class OwnerService {
-
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 apiUrl = 'https://rigtigepetwebapi.azurewebsites.net/api/owners';
 
   constructor(private http: HttpClient) { }
 
   getOwners(): Observable<Owner[]> {
-    return this.http.get<Owner[]>(this.apiUrl);
+
+    httpOptions.headers =
+       httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());
+
+    return this.http.get<Owner[]>(environment.apiUrl + '/api/owners/', httpOptions);
+
+    //return this.http.get<Owner[]>(this.apiUrl);
  }
 
   addOwner(owner: Owner): Observable<Owner> {
