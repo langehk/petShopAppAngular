@@ -8,10 +8,15 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { OwnerDetailsComponent } from './owners/owner-details/owner-details.component';
 import { OwnerAddComponent } from './owners/owner-add/owner-add.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { OwnerUpdateComponent } from './owners/owner-update/owner-update.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BsDropdownModule, ButtonsModule, ProgressbarModule} from 'ngx-bootstrap';
+import {LoginComponent} from './login/login.component';
+import {HomeComponent} from './home/home.component';
+import {TodoItemService} from './_services/todoitem.service';
+import {AuthenticationService} from './_services/authentication.service';
+import {AuthGuard} from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,9 @@ import {BsDropdownModule, ButtonsModule, ProgressbarModule} from 'ngx-bootstrap'
     WelcomeComponent,
     OwnerDetailsComponent,
     OwnerAddComponent,
-    OwnerUpdateComponent
+    OwnerUpdateComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +37,15 @@ import {BsDropdownModule, ButtonsModule, ProgressbarModule} from 'ngx-bootstrap'
     HttpClientModule,
     ButtonsModule.forRoot(),
     ProgressbarModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    FormsModule
 
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthenticationService,
+    TodoItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

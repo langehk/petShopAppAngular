@@ -1,0 +1,15 @@
+
+<div class="col-md-6 col-md-offset-3">
+  <h2>Home</h2>
+  <p *ngIf="errormessage; else elseBlock" class="alert alert-danger">{{errormessage}}</p>
+  <ng-template #elseBlock>
+    <p>You're logged in {{username}}!</p>
+    <div>
+      TodoItems from secure api end point:
+      <ul>
+        <li *ngFor="let todoitem of todoitems">{{todoitem.id}}:{{todoitem.name}}, Complete:{{todoitem.isComplete}}</li>
+      </ul>
+    </div>
+  </ng-template>
+  <p><a [routerLink]="['/login']">Logout</a></p>
+</div>

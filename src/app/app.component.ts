@@ -8,6 +8,7 @@ import {Owner} from './shared/models/owner';
 })
 export class AppComponent {
   title = 1;
+
 owners: Owner[] = [
   {ownerId: 1, firstName: 'Jan', lastName: 'Jorgensen'},
   {ownerId: 2, firstName: 'Ole', lastName: 'Jorgensen'}
