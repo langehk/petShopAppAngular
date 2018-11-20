@@ -22,8 +22,6 @@ export class PetService {
 
   apiUrl = 'https://rigtigepetwebapi.azurewebsites.net/api/pets';
 
-  constructor(private http: HttpClient) { }
-
   getPets(): Observable<Pet[]> {
    httpOptions.headers =
       httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());

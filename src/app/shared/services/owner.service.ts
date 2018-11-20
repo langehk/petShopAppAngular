@@ -17,10 +17,10 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OwnerService {
-  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
-apiUrl = 'https://rigtigepetwebapi.azurewebsites.net/api/owners';
+  apiUrl = 'https://rigtigepetwebapi.azurewebsites.net/api/owners';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 
   getOwners(): Observable<Owner[]> {
 
